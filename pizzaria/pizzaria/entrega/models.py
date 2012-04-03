@@ -43,7 +43,7 @@ class Entregador(models.Model):
         return self.nome
         
     class Meta:
-        verbose_name_plural = u'Entregadores'
+        verbose_name_plural = u'Entregadoresssss'
 
 SABORES = [
     ('mussarela', 'Mussarela'),
