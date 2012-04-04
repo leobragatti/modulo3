@@ -33,3 +33,4 @@ class PedidoAdmin(admin.ModelAdmin):
 admin.site.register(Cliente, ClienteAdmin)
 admin.site.register(Pedido, PedidoAdmin)
 admin.site.register(Entregador)
+admin.site.register(Pizza)
