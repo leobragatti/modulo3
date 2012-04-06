@@ -15,7 +15,10 @@ class Cliente(models.Model):
     class Meta:
         unique_together = ('fone', 'ramal')
         ordering = ['fone', 'ramal']
-        
+    
+    def get_absolute_url(self):
+		return '/ent/cliente/%s' % self.id
+    
     def __unicode__(self):
 		fone  = self.fone
 		if self.ramal:
@@ -63,10 +66,10 @@ class Pizza(models.Model):
     def __unicode__(self):
         sabor = self.sabor1
         if self.coberto1:
-            sabor += ' coberta'
+            sabor += u' coberta'
         if self.sabor2:
             sabor2 = self.sabor2
             if self.coberto2:
-                sabor2 += ' coberta'
+                sabor2 += u' coberta'
             sabor = u'½ %s, ½ %s' % (sabor, sabor2)
         return sabor

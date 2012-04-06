@@ -1,0 +1,13 @@
+<html>
+	<head>
+		<title>Lista de pizzas</title>
+	</head>
+	<body>
+		<h1>Lista de pizzas a fazer</h1>
+		<ol>
+			{% for pizza in lista %}
+			<li>{{pizza}}</li>
+			{% endfor %}
+		</ol>
+	</body>
+</html>
