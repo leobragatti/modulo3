@@ -1,6 +1,8 @@
 <html>
 	<head>
 		<title>Lista de pizzas</title>
+		<link rel="stylesheet" 
+			  type="text/css" href="{{ STATIC_URL }}css/basico.css" />
 	</head>
 	<body>
 		<h1>Lista de pizzas a fazer</h1>
@@ -9,5 +11,6 @@
 			<li>{{pizza}}</li>
 			{% endfor %}
 		</ol>
+		<img src="{{ STATIC_URL }}pizza.jpg" width="120" />
 	</body>
 </html>
