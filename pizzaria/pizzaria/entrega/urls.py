@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import ListView, DetailView
 
-from .views import HoraView, cadastro, pedido_pronto
+from .views import HoraView, cadastro, pedido_pronto, cliente_obs
 from .models import Pizza, Cliente
 
 qs_pizzas_nao_prontas = Pizza.objects.filter(pedido__pronto=False).order_by('pedido')
@@ -22,4 +22,5 @@ urlpatterns = patterns('',
 						   context_object_name='cliente'),
 						   name='ficha-cli'),
 	url(r'pedido_pronto/$', pedido_pronto, name='pedido-pronto'),
+	url(r'cliente_obs/$', cliente_obs, name='cliente-obs'),
 )

@@ -9,8 +9,8 @@ from django.views.generic import TemplateView
 
 import datetime
 
-from .models import Pizza, Pedido
-from .forms import ClienteModelForm
+from .models import Pizza, Pedido, Cliente
+from .forms import ClienteModelForm, ObservacaoClienteForm
 
 def hora_atual_na_unha(request):
 	agora = datetime.datetime.now()
@@ -46,3 +46,15 @@ def pedido_pronto(request):
 		pedido.save()
 	return HttpResponseRedirect(reverse('lista-pizzas'))
 	
+def cliente_obs(request):
+	if request.method == 'POST':
+		formulario = ObservacaoClienteForm(request.POST)
+		if formulario.is_valid():
+			cliente_id = request.POST.get('cliente_id')
+			cliente = Cliente.objects.get(pk=cliente_id)
+			cliente.obs = formulario.cleaned_data['obs']
+			cliente.save()
+			return HttpResponseRedirect(reverse('ficha-cli'))
+	else:
+		formulario = ObservacaoClienteForm()
+	return HttpResponseRedirect(reverse('ficha-cli'))
