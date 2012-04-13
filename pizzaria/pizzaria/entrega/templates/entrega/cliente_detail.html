@@ -6,15 +6,21 @@
 
 <table border="1">
     <tr>
-        <th>id</th><td>{{cliente.id}}</td>
+        <th>ID</th><td>{{cliente.id}}</td>
     </tr>
     <tr>
-        <th>nome</th><td>{{cliente.nome}}</a></td>
+        <th>Nome</th><td>{{cliente.nome}}</a></td>
     </tr>
     <tr>
-        <th>endereço</th><td>{{cliente.endereco}}</td>
+        <th>Endereço</th><td>{{cliente.endereco}}</td>
     </tr>
 </table>
+<form action="{% url lista-clientes %}" method="POST">
+
+{{ formulario_obs.as_p }}
+<input type="submit" name="atualizar" value="Atualizar observação" />
+
+</form>
 
 </body>
 
